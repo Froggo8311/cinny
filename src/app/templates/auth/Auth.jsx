@@ -9,6 +9,7 @@ import * as auth from '../../../client/action/auth';
 import cons from '../../../client/state/cons';
 import { Debounce, getUrlPrams } from '../../../util/common';
 import { getBaseUrl } from '../../../util/matrixUtil';
+import getConfig from '../../../util/config';
 
 import Text from '../../atoms/text/Text';
 import Button from '../../atoms/button/Button';
@@ -87,10 +88,8 @@ function Homeserver({ onChange }) {
   }, [hs]);
 
   useEffect(async () => {
-    const link = window.location.href;
-    const configFileUrl = `${link}${link[link.length - 1] === '/' ? '' : '/'}config.json`;
     try {
-      const result = await (await fetch(configFileUrl, { method: 'GET' })).json();
+      const result = await getConfig();
       const selectedHs = result?.defaultHomeserver;
       const hsList = result?.homeserverList;
       const allowCustom = result?.allowCustomHomeservers ?? true;
