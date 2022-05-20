@@ -8,5 +8,7 @@
     "matrix.org",
     "chat.mozilla.org"
   ],
-  "allowCustomHomeservers": true
+  "allowCustomHomeservers": true,
+  "unifiedPushGateway": "https://matrix.gateway.unifiedpush.org/_matrix/push/v1/notify",
+  "ntfyHost": "ntfy.sh"
 }

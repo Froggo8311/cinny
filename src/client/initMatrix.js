@@ -8,6 +8,7 @@ import AccountData from './state/AccountData';
 import RoomsInput from './state/RoomsInput';
 import Notifications from './state/Notifications';
 import { cryptoCallbacks } from './state/secretStorageKeys';
+import getConfig from '../util/config';
 
 global.Olm = require('@matrix-org/olm');
 
@@ -98,21 +99,20 @@ class InitMatrix extends EventEmitter {
   }
 
   async setupPushGateway() {
-    const a = await this.matrixClient.getPushers();
-    if (a.pushers.find((p) => p.app_id === secret.deviceId)) {
+    const appId = `${window.location.hostname.split('.').reverse().join('.')}.${secret.deviceId}`;
+    const existingPushers = await this.matrixClient.getPushers();
+    if (existingPushers.pushers.find((p) => p.app_id === appId)) {
       console.log('Pusher already registered');
       return;
     }
 
-    // TODO: Replace this
-    const pushGateway = 'https://matrix.gateway.unifiedpush.org/_matrix/push/v1/notify';
-    const ntfyKey = '[still magic]';
-    const ntfyHost = 'ntfy.sh';
-    const pushAddr = `https://${ntfyHost}/${ntfyKey}?up=1`;
-    const eventSocketAddr = `wss://${ntfyHost}/${ntfyKey}/ws`;
+    const ntfyKey = crypto.randomUUID();
+    const { unifiedPushGateway, ntfyHost } = await getConfig();
+    const pushAddr = `https://${ntfyHost ?? 'ntfy.sh'}/${ntfyKey}?up=1`;
+    const eventSocketAddr = `wss://${ntfyHost ?? 'ntfy.sh'}/${ntfyKey}/ws`;
 
     await this.matrixClient.setPusher({
-      app_id: `${window.location.hostname.split('.').reverse().join('.')}.${secret.deviceId}`,
+      app_id: appId,
       device_display_name: `Cinny (${secret.deviceId})`,
       app_display_name: 'Cinny',
       kind: 'http',
@@ -120,7 +120,7 @@ class InitMatrix extends EventEmitter {
       append: false,
       data: {
         format: 'event_id_only',
-        url: pushGateway,
+        url: unifiedPushGateway ?? 'https://matrix.gateway.unifiedpush.org/_matrix/push/v1/notify',
       },
       pushkey: pushAddr,
     });
@@ -131,7 +131,7 @@ class InitMatrix extends EventEmitter {
       eventSocketAddr,
     });
 
-    console.log('Pusher registered, pushkey: ', pushAddr);
+    console.log('Pusher registered, push address: ', pushAddr);
   }
 }
 
