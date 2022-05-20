@@ -96,6 +96,33 @@ class InitMatrix extends EventEmitter {
       window.location.reload();
     });
   }
+
+  async setupPushGateway() {
+    const a = await this.matrixClient.getPushers();
+    if (a.pushers.find((p) => p.app_id === secret.deviceId)) {
+      console.log('Pusher already registered');
+      return;
+    }
+
+    // TODO: Replace this
+    const pushkey = 'https://ntfy.sh/[magic 😁]?up=1';
+
+    await this.matrixClient.setPusher({
+      app_id: `${window.location.hostname.split('.').reverse().join('.')}.${secret.deviceId}`,
+      device_display_name: `Cinny (${secret.deviceId})`,
+      app_display_name: 'Cinny',
+      kind: 'http',
+      lang: 'en',
+      append: false,
+      data: {
+        format: 'event_id_only',
+        url: 'https://matrix.gateway.unifiedpush.org/_matrix/push/v1/notify',
+      },
+      pushkey,
+    });
+
+    console.log('Pusher registered, pushkey: ', pushkey);
+  }
 }
 
 const initMatrix = new InitMatrix();
