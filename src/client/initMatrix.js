@@ -105,7 +105,11 @@ class InitMatrix extends EventEmitter {
     }
 
     // TODO: Replace this
-    const pushkey = 'https://ntfy.sh/[magic 😁]?up=1';
+    const pushGateway = 'https://matrix.gateway.unifiedpush.org/_matrix/push/v1/notify';
+    const ntfyKey = '[still magic]';
+    const ntfyHost = 'ntfy.sh';
+    const pushAddr = `https://${ntfyHost}/${ntfyKey}?up=1`;
+    const eventSocketAddr = `wss://${ntfyHost}/${ntfyKey}/ws`;
 
     await this.matrixClient.setPusher({
       app_id: `${window.location.hostname.split('.').reverse().join('.')}.${secret.deviceId}`,
@@ -116,12 +120,18 @@ class InitMatrix extends EventEmitter {
       append: false,
       data: {
         format: 'event_id_only',
-        url: 'https://matrix.gateway.unifiedpush.org/_matrix/push/v1/notify',
+        url: pushGateway,
       },
-      pushkey,
+      pushkey: pushAddr,
     });
 
-    console.log('Pusher registered, pushkey: ', pushkey);
+    const svr = await navigator.serviceWorker.getRegistration();
+    svr.active.postMessage({
+      type: 'ntfy-push-address',
+      eventSocketAddr,
+    });
+
+    console.log('Pusher registered, pushkey: ', pushAddr);
   }
 }
 
