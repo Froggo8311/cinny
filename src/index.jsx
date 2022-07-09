@@ -7,7 +7,7 @@ import settings from './client/state/settings';
 
 import App from './app/pages/App';
 
-settings.setTheme(settings.getThemeIndex());
+settings.applyTheme();
 
 if (navigator.serviceWorker) {
   navigator.serviceWorker.register(new URL('./serviceWorker.js', import.meta.url), { scope: window.location.pathname })
