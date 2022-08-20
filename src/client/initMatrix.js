@@ -9,12 +9,19 @@ import RoomsInput from './state/RoomsInput';
 import Notifications from './state/Notifications';
 import { cryptoCallbacks } from './state/secretStorageKeys';
 import getConfig from '../util/config';
+import navigation from './state/navigation';
 
 global.Olm = require('@matrix-org/olm');
 
 // logger.disableAll();
 
 class InitMatrix extends EventEmitter {
+  constructor() {
+    super();
+
+    navigation.initMatrix = this;
+  }
+
   async init() {
     await this.startClient();
     this.setupSync();
