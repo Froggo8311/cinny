@@ -14,7 +14,4 @@ if (navigator.serviceWorker) {
     .then((reg) => reg.update().then(() => console.log('Service worker updated')));
 }
 
-ReactDom.render(
-  <App />,
-  document.getElementById('root'),
-);
+ReactDom.render(<App />, document.getElementById('root'));
