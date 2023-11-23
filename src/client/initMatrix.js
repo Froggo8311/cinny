@@ -143,6 +143,8 @@ class InitMatrix extends EventEmitter {
 
     console.log('Pusher registered, push address: ', pushAddr);
 
+  }
+
   async logout() {
     this.matrixClient.stopClient();
     try {
