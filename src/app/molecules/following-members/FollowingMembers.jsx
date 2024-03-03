@@ -47,7 +47,7 @@ function FollowingMembers({ roomTimeline }) {
         size="extra-small"
         src={TickMarkIC}
       />
-      <Text variant="b2">{getUsersActionJsx(roomId, filteredM, 'following the conversation.')}</Text>
+      <Text variant="b2">{getUsersActionJsx(roomId, filteredM, null)}</Text>
     </button>
   );
 }

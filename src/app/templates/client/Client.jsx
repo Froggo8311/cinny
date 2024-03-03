@@ -24,7 +24,7 @@ import VerticalMenuIC from '../../../../public/res/ic/outlined/vertical-menu.svg
 
 function Client() {
   const [isLoading, changeLoading] = useState(true);
-  const [loadingMsg, setLoadingMsg] = useState('Heating up');
+  const [loadingMsg, setLoadingMsg] = useState('Loading...');
   const [dragCounter, setDragCounter] = useState(0);
   const classNameHidden = 'client__item-hidden';
 
@@ -54,8 +54,8 @@ function Client() {
     let counter = 0;
     const iId = setInterval(() => {
       const msgList = [
-        'Almost there...',
-        'Looks like you have a lot of stuff to heat up!',
+        'Still loading...',
+        'Should be done soon...',
       ];
       if (counter === msgList.length - 1) {
         setLoadingMsg(msgList[msgList.length - 1]);

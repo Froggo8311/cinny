@@ -3,7 +3,7 @@
 
 .segmented-controls {
   background-color: var(--bg-surface-low);
-  border-radius: var(--bo-radius);
+  border-radius: 12px;
   border: 1px solid var(--bg-surface-border);
 
   display: inline-flex;
@@ -11,9 +11,13 @@
 }
 
 .segment-btn {
-  padding: var(--sp-extra-tight) 0;
+  transition-duration: 0.2s;
+  margin: 2px;
+  padding: 4px;
+  border-radius: 12px;
   cursor: pointer;
-  @include state.hover(var(--bg-surface-hover));
+
+  @include state.hover(rgb(100, 255, 100, 0.3));
   @include state.active(var(--bg-surface-active));
 
   &__base {
@@ -21,7 +25,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    @include dir.side(border, 1px solid var(--bg-surface-border), none);
 
     & .text:nth-child(2) {
       margin: 0 var(--sp-extra-tight);
@@ -32,26 +35,8 @@
   }
 
   &--active {
-    background-color: var(--bg-surface);
-    border: 1px solid var(--bg-surface-border);
-    border-width: 0 1px 0 1px;
-
-    & .segment-btn__base,
-    & + .segment-btn .segment-btn__base {
-      border: none;
-    }
-    &:first-child{
-      border-left: none;
-    }
-    &:last-child {
-      border-right: none;
-    }
-    [dir=rtl] & {
-      border-left: 1px solid var(--bg-surface-border);
-      border-right: 1px solid var(--bg-surface-border);
-
-      &:first-child { border-right: none;}
-      &:last-child { border-left: none;}
-    }
+    background-color: rgb(0, 255, 0, 0.5);
+    text-shadow: 0px 0px 4px var(--bg-surface-border);
+    font-weight: bold;
   }
 }

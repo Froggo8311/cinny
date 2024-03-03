@@ -82,7 +82,7 @@ const MessageHeader = React.memo(({
       weight="medium"
       span
     >
-      <span>{twemojify(username)}</span>
+      <span>{twemojify(username.length < 100 ? username : (username.slice(0, 100) + '...'))}</span>
       <span>{twemojify(userId)}</span>
     </Text>
     <div className="message__time">

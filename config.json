@@ -1,13 +1,12 @@
 {
-  "defaultHomeserver": 3,
+  "defaultHomeserver": 0,
   "homeserverList": [
-    "0wnz.at",
-    "converser.eu",
+    "nova.astraltech.org",
     "envs.net",
-    "matrix.org",
-    "monero.social",
-    "mozilla.org",
-    "xmr.se"
+    "catgirl.cloud",
+    "articfoxes.net",
+    "4d2.org"1,
+    "matrix.org"
   ],
   "allowCustomHomeservers": true
 }

@@ -61,17 +61,4 @@
 
 .sidebar__cross-signin-alert .avatar-container {
   box-shadow: var(--bs-danger-border);
-  animation-name: pushRight;
-  animation-duration: 400ms;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
-}
-
-@keyframes pushRight {
-  from {
-    transform: translateX(4px) scale(1);
-  }
-  to {
-    transform: translateX(0) scale(1);
-  }
 }

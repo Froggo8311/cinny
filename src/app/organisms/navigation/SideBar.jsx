@@ -159,7 +159,7 @@ function FeaturedTab() {
         ) : null}
       />
       <SidebarAvatar
-        tooltip="People"
+        tooltip="DMs"
         active={selectedTab === cons.tabs.DIRECTS}
         onClick={() => selectTab(cons.tabs.DIRECTS)}
         avatar={<Avatar iconSrc={UserIC} size="normal" />}

@@ -7,7 +7,7 @@
   padding: 0 var(--sp-ultra-tight);
   display: flex;
   align-items: center;
-  border-radius: var(--bo-radius);
+  border-radius: 12px;
   box-shadow: var(--bs-surface-border);
   cursor: pointer;
   background-color: var(--bg-surface-low);
@@ -21,7 +21,7 @@
     width: 16px;
     height: 16px;
     background-color: var(--tc-surface-low);
-    border-radius: calc(var(--bo-radius) / 2);
+    border-radius: 12px;
     transition: transform 200ms ease-in-out,
       opacity 200ms ease-in-out;
     opacity: 0.6;

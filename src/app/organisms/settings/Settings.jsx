@@ -71,6 +71,7 @@ function AppearanceSection() {
                 { text: 'Silver' },
                 { text: 'Dark' },
                 { text: 'Butter' },
+                //{ text: 'OLED' }
               ]}
               onSelect={(index) => {
                 if (settings.useSystemTheme) toggleSystemTheme();
@@ -211,7 +212,7 @@ function SecuritySection() {
           title="Import E2E room keys"
           content={(
             <>
-              <Text variant="b3">{'To decrypt older messages, Export E2EE room keys from Element (Settings > Security & Privacy > Encryption > Cryptography) and import them here. Imported keys are encrypted so you\'ll have to enter the password you set in order to decrypt it.'}</Text>
+              <Text variant="b3">{'To decrypt older messages, Export E2EE room keys from your other client (Settings > Security & Privacy > Encryption > Cryptography) and import them here. Imported keys are encrypted so you\'ll have to enter the password you set in order to decrypt it.'}</Text>
               <ImportE2ERoomKeys />
             </>
           )}
@@ -326,7 +327,7 @@ function Settings() {
 
   const handleTabChange = (tabItem) => setSelectedTab(tabItem);
   const handleLogout = async () => {
-    if (await confirmDialog('Logout', 'Are you sure that you want to logout your session?', 'Logout', 'danger')) {
+    if (await confirmDialog('Logout', 'Are you sure that you want to logout?', 'Logout', 'danger')) {
       initMatrix.logout();
     }
   };

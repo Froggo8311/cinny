@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { createElement } from 'react';
 
 import { twemojify } from '../../../util/twemojify';
 
@@ -137,6 +137,11 @@ function getTimelineJSXMessages() {
   };
 }
 
+function truncateString(str, maxLen) {
+  let string = str.props.children;
+  return string.length > maxLen ? createElement('b', {children: `${string.slice(0, maxLen)}...`}) : str;
+}
+
 function getUsersActionJsx(roomId, userIds, actionStr) {
   const room = initMatrix.matrixClient.getRoom(roomId);
   const getUserDisplayName = (userId) => {
@@ -148,23 +153,23 @@ function getUsersActionJsx(roomId, userIds, actionStr) {
   if (userIds.length === 0) return 'Idle';
   const MAX_VISIBLE_COUNT = 3;
 
-  const u1Jsx = getUserJSX(userIds[0]);
+  const u1Jsx = truncateString(getUserJSX(userIds[0]), 30);
   // eslint-disable-next-line react/jsx-one-expression-per-line
-  if (userIds.length === 1) return <>{u1Jsx} is {actionStr}</>;
+  if (userIds.length === 1) return <>{u1Jsx}{actionStr != null ? ' is ' : ''}{actionStr}</>;
 
-  const u2Jsx = getUserJSX(userIds[1]);
+  const u2Jsx = truncateString(getUserJSX(userIds[1]), 30);
   // eslint-disable-next-line react/jsx-one-expression-per-line
-  if (userIds.length === 2) return <>{u1Jsx} and {u2Jsx} are {actionStr}</>;
+  if (userIds.length === 2) return <>{u1Jsx} and {u2Jsx}{actionStr != null ? ' are ' : ''}{actionStr}</>;
 
-  const u3Jsx = getUserJSX(userIds[2]);
+  const u3Jsx = truncateString(getUserJSX(userIds[2]), 30);
   if (userIds.length === 3) {
     // eslint-disable-next-line react/jsx-one-expression-per-line
-    return <>{u1Jsx}, {u2Jsx} and {u3Jsx} are {actionStr}</>;
+    return <>{u1Jsx}, {u2Jsx}, and {u3Jsx}{actionStr != null ? ' are ' : ''}{actionStr}</>;
   }
 
   const othersCount = userIds.length - MAX_VISIBLE_COUNT;
   // eslint-disable-next-line react/jsx-one-expression-per-line
-  return <>{u1Jsx}, {u2Jsx}, {u3Jsx} and {othersCount} others are {actionStr}</>;
+  return <>{u1Jsx}, {u2Jsx}, {u3Jsx}, and {othersCount} others{actionStr != null ? ' are ' : ''}{actionStr}</>;
 }
 
 function parseTimelineChange(mEvent) {

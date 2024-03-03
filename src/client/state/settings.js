@@ -20,7 +20,7 @@ class Settings extends EventEmitter {
   constructor() {
     super();
 
-    this.themes = ['', 'silver-theme', 'dark-theme', 'butter-theme'];
+    this.themes = ['', 'silver-theme', 'dark-theme', 'butter-theme', 'oled-theme'];
     this.themeIndex = this.getThemeIndex();
 
     this.useSystemTheme = this.getUseSystemTheme();
@@ -110,8 +110,8 @@ class Settings extends EventEmitter {
     if (typeof this.hideNickAvatarEvents === 'boolean') return this.hideNickAvatarEvents;
 
     const settings = getSettings();
-    if (settings === null) return true;
-    if (typeof settings.hideNickAvatarEvents === 'undefined') return true;
+    if (settings === null) return false;
+    if (typeof settings.hideNickAvatarEvents === 'undefined') return false;
     return settings.hideNickAvatarEvents;
   }
 
