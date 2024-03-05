@@ -34,6 +34,9 @@ export default defineConfig({
   server: {
     port: 8080,
     host: true,
+    fs: {
+      cachedChecks: false
+    }
   },
   plugins: [
     viteStaticCopy(copyFiles),
