@@ -25,8 +25,7 @@
   &__toggle {
     @extend .cp-fx__item-one;
     padding: var(--sp-extra-tight) var(--sp-tight);
-    cursor: pointer;
-    
+
     & .ic-raw {
       flex-shrink: 0;
       width: 12px;
@@ -37,9 +36,6 @@
     & .text {
       text-transform: uppercase;
       @extend .cp-txt__ellipsis;
-    }
-    &:hover .text {
-      color: var(--tc-surface-normal);
     }
   }
 

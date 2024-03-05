@@ -333,12 +333,7 @@ function RoomViewInput({
     textAreaRef.current.focus();
   }
 
-  const handleUploadClick = () => {
-    if (attachment === null) uploadInputRef.current.click();
-    else {
-      roomsInput.cancelAttachment(roomId);
-    }
-  };
+  const handleUploadClick = () => attachment === null ? uploadInputRef.current.click() : roomsInput.cancelAttachment(roomId);
   function uploadFileChange(e) {
     const file = e.target.files.item(0);
     setAttachment(file);
@@ -363,7 +358,7 @@ function RoomViewInput({
       <>
         <div className={`room-input__option-container${attachment === null ? '' : ' room-attachment__option'}`}>
           <input onChange={uploadFileChange} style={{ display: 'none' }} ref={uploadInputRef} type="file" />
-          <IconButton onClick={handleUploadClick} tooltip={attachment === null ? 'Upload' : 'Cancel'} src={CirclePlusIC} />
+          <IconButton onClick={handleUploadClick} tooltip={attachment === null ? 'Upload' : 'Cancel'} src={attachment === null ? CirclePlusIC : CrossIC} />
         </div>
         <div ref={inputBaseRef} className="room-input__input-container">
           {roomTimeline.isEncrypted() && <RawIcon size="extra-small" src={ShieldIC} />}
@@ -432,8 +427,8 @@ function RoomViewInput({
           {fileType !== 'image' && fileType !== 'video' && fileType !== 'audio' && <RawIcon src={FileIC} />}
         </div>
         <div className="room-attachment__info">
-          <Text variant="b1">{attachment.name}</Text>
-          <Text variant="b3"><span ref={uploadProgressRef}>{`size: ${bytesToSize(attachment.size)}`}</span></Text>
+          <Text variant="b1" style={{ flex: 1 }}>{attachment.name}</Text>
+          <Text variant="b3" className="room-attachment__size"><span style={{ flex: 1 }} ref={uploadProgressRef}>{bytesToSize(attachment.size)}</span></Text>
         </div>
       </div>
     );

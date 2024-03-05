@@ -77,7 +77,7 @@ function Home({ spaceId }) {
       )}
 
       { directIds.length !== 0 && (
-        <RoomsCategory name="People" roomIds={directIds.sort(roomIdByActivity)} drawerPostie={drawerPostie} />
+        <RoomsCategory name="Users" roomIds={directIds.sort(roomIdByActivity)} drawerPostie={drawerPostie} />
       )}
 
       { isCategorized && [...categories.keys()].sort(roomIdByAtoZ).map((catId) => {

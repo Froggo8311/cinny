@@ -16,7 +16,7 @@ function Time({ timestamp, fullTime }) {
     compareDate.setDate(compareDate.getDate() - 1);
     const isYesterday = isInSameDay(date, compareDate);
 
-    formattedDate = dateFormat(date, isToday || isYesterday ? 'hh:MM TT' : 'dd/mm/yyyy');
+    formattedDate = dateFormat(date, isToday || isYesterday ? 'hh:MM TT' : 'hh:MM TT (dd/mm/yyyy)');
     if (isYesterday) {
       formattedDate = `Yesterday, ${formattedDate}`;
     }

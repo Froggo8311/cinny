@@ -79,6 +79,7 @@
     border-radius: var(--bo-radius);
   }
   &__info {
+    display: inline-flex;
     flex: 1;
     min-width: 0;
     margin: 0 var(--sp-tight);
@@ -88,11 +89,16 @@
     transition: transform 200ms ease-in-out;
     transform: translateY(-48px);
     & .ic-raw {
-      transition: transform 200ms ease-in-out;
-      transform: rotate(45deg);
+      transition-duration: 0.2s;
       background-color: var(--bg-caution);
     }
   }
+}
+
+.room-attachment__size {
+  display: flex;
+  flex: 1;
+  text-align: right;
 }
 
 .room-reply {

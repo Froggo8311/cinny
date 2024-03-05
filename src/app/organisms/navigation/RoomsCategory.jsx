@@ -15,8 +15,9 @@ import { HomeSpaceOptions } from './DrawerHeader';
 
 import PlusIC from '../../../../public/res/ic/outlined/plus.svg';
 import HorizontalMenuIC from '../../../../public/res/ic/outlined/horizontal-menu.svg';
-import ChevronBottomIC from '../../../../public/res/ic/outlined/chevron-bottom.svg';
-import ChevronRightIC from '../../../../public/res/ic/outlined/chevron-right.svg';
+import SpaceIC from '../../../../public/res/ic/outlined/space-plus.svg';
+import RoomsIC from '../../../../public/res/ic/outlined/hash.svg';
+import DMsIC from '../../../../public/res/ic/outlined/user.svg';
 
 function RoomsCategory({
   spaceId, name, hideHeader, roomIds, drawerPostie,
@@ -61,10 +62,10 @@ function RoomsCategory({
     <div className="room-category">
       {!hideHeader && (
         <div className="room-category__header">
-          <button className="room-category__toggle" onClick={() => setIsOpen(!isOpen)} type="button">
-            <RawIcon src={isOpen ? ChevronBottomIC : ChevronRightIC} size="extra-small" />
+          <div className="room-category__toggle">
+            <RawIcon src={name === 'Spaces' ? SpaceIC : (name === 'Rooms' ? RoomsIC : DMsIC)} size="extra-small" />
             <Text className="cat-header" variant="b3" weight="medium">{name}</Text>
-          </button>
+          </div>
           {spaceId && <IconButton onClick={openSpaceOptions} tooltip="Space options" src={HorizontalMenuIC} size="extra-small" />}
           {spaceId && <IconButton onClick={openHomeSpaceOptions} tooltip="Add rooms/spaces" src={PlusIC} size="extra-small" />}
         </div>
