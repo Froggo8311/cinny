@@ -69,8 +69,9 @@
   background-repeat: no-repeat;
   background-position-y: center;
   background-size: 512px 512px;
-  filter: blur(16px) brightness(60%);
-  background-image: linear-gradient(to right, transparent 0%, var(--bg-surface-low) 90%), var(--avatar);
+  filter: blur(20px);
+  opacity: 40%;
+  background-image: linear-gradient(to right, transparent, var(--bg-surface-low)), var(--avatar);
 }
 
 .ph-msg {
