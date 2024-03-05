@@ -365,12 +365,7 @@ function useEventArrive(roomTimeline, readUptoEvtStore, timelineScrollRef, event
         return;
       }
       const isRelates = (event.getType() === 'm.reaction' || event.getRelation()?.rel_type === 'm.replace');
-      if (isRelates) {
-        setEvent(event);
-        return;
-      }
-
-      if (isViewingLive) {
+      if (isRelates || isViewingLive) {
         // This stateUpdate will help to put the
         // loading msg placeholder at bottom
         setEvent(event);
@@ -439,8 +434,6 @@ function RoomViewContent({ eventId, roomTimeline }) {
     if (timeline.length > 0) {
       if (jumpToItemIndex === -1) {
         timelineScroll.scrollToBottom();
-      } else {
-        timelineScroll.scrollToIndex(jumpToItemIndex, 80);
       }
       if (timelineScroll.bottom < 16 && !roomTimeline.canPaginateForward()) {
         const readUpToId = roomTimeline.getReadUpToEventId();

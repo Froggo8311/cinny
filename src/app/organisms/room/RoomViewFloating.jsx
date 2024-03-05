@@ -111,7 +111,7 @@ function RoomViewFloating({
       </div>
       <div className={`room-view__STB${isAtBottom ? '' : ' room-view__STB--open'}`}>
         <Button iconSrc={MessageIC} onClick={handleScrollToBottom}>
-          <Text variant="b3" weight="medium">Jump to latest</Text>
+          <Text variant="b3" weight="medium">Jump to bottom</Text>
         </Button>
       </div>
     </>
