@@ -104,6 +104,7 @@
 .message__header {
   display: flex;
   align-items: baseline;
+  text-shadow: 0px 0px 6px #000;
 
   & .message__profile {
     min-width: 0;

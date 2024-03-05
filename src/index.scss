@@ -18,7 +18,7 @@
   --bg-primary-active: rgba(83, 110, 234, 70%);
   --bg-primary-border: rgba(83, 110, 234, 38%);
 
-  --bg-positive: rgb(69, 184, 59);
+  --bg-positive: rgb(32, 180, 32);
   --bg-positive-hover: rgba(69, 184, 59, 8%);
   --bg-positive-active: rgba(69, 184, 59, 15%);
   --bg-positive-border: rgba(69, 184, 59, 40%);
@@ -192,7 +192,7 @@
   --fluid-slide-down: cubic-bezier(0.02, 0.82, 0.4, 0.96);
   --fluid-slide-up: cubic-bezier(0.13, 0.56, 0.25, 0.99);
   
-  --font-primary: 'Roboto', sans-serif;
+  --font-primary: 'Cantarell', sans-serif;
   --font-secondary: 'Roboto', sans-serif;
 }
 
@@ -296,7 +296,7 @@
 }
 
 .dark-theme,
-.butter-theme {
+.butter-theme, .oled-theme {
   @include dark-mode();
 }
 
@@ -304,6 +304,25 @@
   .system-theme {
     @include dark-mode();
   }
+}
+
+.oled-theme {
+  /* background color | --bg-[background type]: value */
+  --bg-surface: rgb(12, 6, 12);
+  --bg-surface-transparent: transparent;
+  --bg-surface-low: rgb(8, 4, 8);
+  --bg-surface-low-transparent: transparent;
+  --bg-surface-extra-low: rgb(1, 1, 6);
+  --bg-surface-extra-low-transparent: transparent;
+
+  /* notification badge */
+  --bg-badge: rgb(180, 160, 180);
+
+  /* font colors */
+  --tc-surface-high: #e1e1e1;
+  --tc-surface-normal: #c1c1c1;
+  --tc-surface-normal-low: #a1a1a1;
+  --tc-surface-low: #818181;
 }
 
 .butter-theme {

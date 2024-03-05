@@ -71,7 +71,7 @@ function AppearanceSection() {
                 { text: 'Silver' },
                 { text: 'Dark' },
                 { text: 'Butter' },
-                //{ text: 'OLED' }
+                { text: 'Super Dark' }
               ]}
               onSelect={(index) => {
                 if (settings.useSystemTheme) toggleSystemTheme();

@@ -13,6 +13,8 @@
   margin: 0;
   padding: 0;
   color: var(--tc-surface-high);
+  font-family: Cantarell;
+  font-weight: 400 !important;
 
   & img.emoji,
   & img[data-mx-emoticon] {
@@ -58,4 +60,6 @@
 .text-b3 {
   @include font(b3);
   color: var(--tc-surface-low);
+  font-family: var(--font-secondary);
+  font-weight: 600 !important;
 }

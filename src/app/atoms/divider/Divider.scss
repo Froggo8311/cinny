@@ -1,27 +1,11 @@
-.divider-line {
-  content: '';
-  display: inline-block;
-  flex: 1;
-  border-bottom: 1px solid var(--local-divider-color);
-  opacity: var(--local-divider-opacity);
-}
-
 .divider {
   display: flex;
-  align-items: center;
-
-  &--center::before,
-  &--right::before {
-    @extend .divider-line;
-  }
-  &--center::after,
-  &--left::after {
-    @extend .divider-line;
-  }
+  justify-content: center;
 
   &__text {
-    padding: 2px var(--sp-extra-tight);
-    border-radius: calc(var(--bo-radius) / 2);
+    padding: 2px calc(var(--sp-extra-tight) * 2);
+    border-radius: 8px;
+    box-shadow: 0px 0px 4px #000;
   }
 }
 
