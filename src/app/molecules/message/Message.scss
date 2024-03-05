@@ -42,6 +42,7 @@
 }
 
 .message {
+  position: relative;
   &--full + &--full,
   &--body-only + &--full,
   & + .timeline-change,
@@ -51,12 +52,25 @@
   &__avatar-container {
     width: var(--av-small);
   }
+
   &--focus {
     --ltr: inset 2px 0 0 var(--bg-caution);
     --rtl: inset -2px 0 0 var(--bg-caution);
     @include dir.prop(box-shadow, var(--ltr), var(--rtl));
     background-color: var(--bg-caution-hover);
   }
+}
+
+.message::before {
+  content: "";
+  inset: 0;
+  position: absolute;
+  z-index: -1;
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-size: 512px 512px;
+  filter: blur(16px) brightness(60%);
+  background-image: linear-gradient(to right, transparent 0%, var(--bg-surface-low) 90%), var(--avatar);
 }
 
 .ph-msg {
@@ -107,23 +121,37 @@
   text-shadow: 0px 0px 6px #000;
 
   & .message__profile {
+    display: inline-flex;
+    align-items: center;
     min-width: 0;
-    color: var(--tc-surface-high);
+
     @include dir.side(margin, 0, var(--sp-tight));
 
     & > span {
       @extend .cp-txt__ellipsis;
       color: inherit;
     }
+    & > span:first-child {
+      transition-duration: 0.2s;
+      color: var(--color, var(--tc-surface-high));
+      text-decoration: underline;
+      text-decoration-color: #00000000;
+    }
     & > span:last-child {
-      display: none;
+      text-shadow: 0px 0px 0px transparent;
+      transition-duration: 0.1s;
+      margin-left: 8px;
+      text-decoration: none;
+      color: transparent;
+      font-size: 9pt;
     }
     &:hover {
       & > span:first-child {
-        display: none;
+        text-decoration-color: var(--color) !important;
       }
       & > span:last-child {
-        display: block;
+        color: var(--tc-surface-low);
+        text-shadow: 0px 0px 6px #000;
       }
     }
   }
@@ -163,6 +191,7 @@
 }
 .message__body {
   word-break: break-word;
+  text-shadow: 0px 0px 4px #000;
 
   & > .text > .message__body-plain {
     white-space: pre-wrap;

@@ -29,6 +29,7 @@ const Avatar = React.forwardRef(({
               onLoad={(e) => { e.target.style.backgroundColor = 'transparent'; }}
               onError={(e) => { e.target.src = ImageBrokenSVG; }}
               alt=""
+              style={{ '--color': bgColor }}
             />
           )
           : (

@@ -32,7 +32,11 @@
     object-fit: cover;
     border-radius: inherit;
     background-color: var(--bg-surface-hover);
+    transition-duration: 0.2s;
     box-shadow: 0px 0px 8px rgb(0, 0, 0, 0.8);
+    &:hover {
+      box-shadow: 0px 0px 1px var(--color), 0px 0px 12px var(--color);
+    }
   }
 
   .avatar__border {

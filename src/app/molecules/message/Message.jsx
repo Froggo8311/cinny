@@ -76,14 +76,14 @@ const MessageHeader = React.memo(({
 }) => (
   <div className="message__header">
     <Text
-      style={{ color: colorMXID(userId) }}
+      style={{ '--color': colorMXID(userId) }}
       className="message__profile"
       variant="b1"
       weight="medium"
       span
     >
       <span>{twemojify(username.length < 100 ? username : (username.slice(0, 100) + '...'))}</span>
-      <span>{twemojify(userId)}</span>
+      <span>({twemojify(userId)})</span>
     </Text>
     <div className="message__time">
       <Text variant="b3">
@@ -764,7 +764,7 @@ function Message({
   if (typeof body !== 'string') body = '';
 
   return (
-    <div className={className.join(' ')}>
+    <div className={className.join(' ')} style={{ '--avatar': 'url('+avatarSrc+')' }}>
       {
         isBodyOnly
           ? <div className="message__avatar-container" />
