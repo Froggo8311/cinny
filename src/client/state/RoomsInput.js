@@ -311,7 +311,7 @@ class RoomsInput extends EventEmitter {
     const content = { info };
     let uploadData = null;
 
-    if (fileType === 'image') {
+    if (fileType === 'image' || file.type.startsWith('image/')) {
       const img = await loadImage(URL.createObjectURL(file));
 
       info.w = img.width;
