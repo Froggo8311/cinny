@@ -765,7 +765,7 @@ function Message({
   if (typeof body !== 'string') body = '';
 
   return (
-    <div className={className.join(' ')} style={{ '--avatar': 'url('+avatarSrc+')' }}>
+    <div className={className.join(' ')}>
       {
         isBodyOnly
           ? <div className="message__avatar-container" />

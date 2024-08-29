@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import './RoomViewCmdBar.scss';
 import parse from 'html-react-parser';
-import twemoji from 'twemoji';
+import twemoji from '@discordapp/twemoji';
 
 import { twemojify, TWEMOJI_BASE_URL } from '../../../util/twemojify';
 

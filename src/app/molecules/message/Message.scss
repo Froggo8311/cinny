@@ -66,12 +66,6 @@
   inset: 0;
   position: absolute;
   z-index: -1;
-  background-repeat: no-repeat;
-  background-position-y: center;
-  background-size: 512px 512px;
-  filter: blur(20px);
-  opacity: 40%;
-  background-image: linear-gradient(to right, transparent, var(--bg-surface-low)), var(--avatar);
 }
 
 .ph-msg {
@@ -184,6 +178,9 @@
   .text {
     @extend .cp-txt__ellipsis;
     color: var(--tc-surface-low);
+    display: flex;
+    align-items: end;
+    gap: 2px;
   }
   .ic-raw {
     width: 16px;

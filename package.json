@@ -19,12 +19,13 @@
   "author": "Ajay Bura",
   "license": "AGPL-3.0-only",
   "dependencies": {
-    "@fontsource/cantarell": "5.0.12",
     "@fontsource-variable/inter": "5.0.17",
+    "@fontsource/cantarell": "5.0.12",
     "@fontsource/roboto": "5.0.12",
     "@khanacademy/simple-markdown": "0.11.3",
     "@matrix-org/olm": "3.2.14",
     "@tippyjs/react": "4.2.6",
+    "@discordapp/twemoji": "15.0.3",
     "blurhash": "2.0.4",
     "browser-encrypt-attachment": "0.3.0",
     "dateformat": "5.0.3",
@@ -47,8 +48,7 @@
     "react-google-recaptcha": "2.1.0",
     "react-modal": "3.16.1",
     "sanitize-html": "2.8.0",
-    "tippy.js": "6.3.7",
-    "twemoji": "14.0.2"
+    "tippy.js": "6.3.7"
   },
   "devDependencies": {
     "@esbuild-plugins/node-globals-polyfill": "0.2.3",

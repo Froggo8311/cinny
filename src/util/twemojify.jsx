@@ -3,10 +3,10 @@ import React, { lazy, Suspense } from 'react';
 
 import linkifyHtml from 'linkify-html';
 import parse from 'html-react-parser';
-import twemoji from 'twemoji';
+import twemoji from '@discordapp/twemoji';
 import { sanitizeText } from './sanitize';
 
-export const TWEMOJI_BASE_URL = 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/';
+export const TWEMOJI_BASE_URL = 'https://cdn.jsdelivr.net/npm/@twemoji/api@15.0.3/assets/';
 
 const Math = lazy(() => import('../app/atoms/math/Math'));
 

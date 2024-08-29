@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import './EmojiBoard.scss';
 
 import parse from 'html-react-parser';
-import twemoji from 'twemoji';
+import twemoji from '@discordapp/twemoji';
 import { emojiGroups, emojis } from './emoji';
 import { getRelevantPacks } from './custom-emoji';
 import initMatrix from '../../../client/initMatrix';
