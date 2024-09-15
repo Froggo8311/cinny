@@ -631,7 +631,6 @@ function genMediaContent(mE) {
 
   let msgType = mE.getContent()?.msgtype;
   const safeMimetype = getBlobSafeMimeType(mContent.info?.mimetype);
-  console.log('\n\n\nAAAAAAAAAAAa\n'+msgType+'\n'+safeMimetype);
   if (mE.getType() === 'm.sticker') {
     msgType = 'm.sticker';
   } /*else if (safeMimetype === 'application/octet-stream') {

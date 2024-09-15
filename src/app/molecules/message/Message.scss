@@ -178,9 +178,6 @@
   .text {
     @extend .cp-txt__ellipsis;
     color: var(--tc-surface-low);
-    display: flex;
-    align-items: end;
-    gap: 2px;
   }
   .ic-raw {
     width: 16px;
