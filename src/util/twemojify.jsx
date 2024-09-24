@@ -3,7 +3,7 @@ import React, { lazy, Suspense } from 'react';
 
 import linkifyHtml from 'linkify-html';
 import parse from 'html-react-parser';
-//import twemoji from '@discordapp/twemoji';
+import twemoji from '@discordapp/twemoji';
 import { sanitizeText } from './sanitize';
 
 export const TWEMOJI_BASE_URL = 'https://cdn.jsdelivr.net/npm/@twemoji/api@latest/assets/';
@@ -40,16 +40,16 @@ const mathOptions = {
 export function twemojify(text, opts, linkify = false, sanitize = true, maths = false) {
   if (typeof text !== 'string') return text;
   let content = text;
-  //const options = opts ?? { base: TWEMOJI_BASE_URL };
-  //if (!options.base) {
-  //  options.base = TWEMOJI_BASE_URL;
-  //}
+  const options = opts ?? { base: TWEMOJI_BASE_URL };
+  if (!options.base) {
+    options.base = TWEMOJI_BASE_URL;
+  }
 
   if (sanitize) {
     content = sanitizeText(content);
   }
 
-  //content = twemoji.parse(content, options);
+  content = twemoji.parse(content, options);
   if (linkify) {
     content = linkifyHtml(content, {
       target: '_blank',
