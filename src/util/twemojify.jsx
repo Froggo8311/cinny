@@ -38,24 +38,23 @@ const mathOptions = {
  * @returns React component
  */
 export function twemojify(text, opts, linkify = false, sanitize = true, maths = false) {
-  /*if (typeof text !== 'string') return text;
+  if (typeof text !== 'string') return text;
   let content = text;
-  const options = opts ?? { base: TWEMOJI_BASE_URL };
-  if (!options.base) {
-    options.base = TWEMOJI_BASE_URL;
-  }
+  //const options = opts ?? { base: TWEMOJI_BASE_URL };
+  //if (!options.base) {
+  //  options.base = TWEMOJI_BASE_URL;
+  //}
 
   if (sanitize) {
     content = sanitizeText(content);
   }
 
-  content = twemoji.parse(content, options);
+  //content = twemoji.parse(content, options);
   if (linkify) {
     content = linkifyHtml(content, {
       target: '_blank',
       rel: 'noreferrer noopener',
     });
   }
-  return parse(content, maths ? mathOptions : null);*/
-  return content;
+  return parse(content, maths ? mathOptions : null);
 }
