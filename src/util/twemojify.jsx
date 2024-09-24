@@ -3,7 +3,7 @@ import React, { lazy, Suspense } from 'react';
 
 import linkifyHtml from 'linkify-html';
 import parse from 'html-react-parser';
-//import twemoji from 'jdecked/twemoji';
+//import twemoji from '@discordapp/twemoji';
 import { sanitizeText } from './sanitize';
 
 export const TWEMOJI_BASE_URL = 'https://cdn.jsdelivr.net/npm/@twemoji/api@latest/assets/';
