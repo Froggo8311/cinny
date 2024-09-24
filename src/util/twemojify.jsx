@@ -3,10 +3,10 @@ import React, { lazy, Suspense } from 'react';
 
 import linkifyHtml from 'linkify-html';
 import parse from 'html-react-parser';
-import twemoji from 'jdecked/twemoji';
+//import twemoji from 'jdecked/twemoji';
 import { sanitizeText } from './sanitize';
 
-export const TWEMOJI_BASE_URL = 'https://cdn.jsdelivr.net/npm/@twemoji/api@15.0.3/assets/';
+export const TWEMOJI_BASE_URL = 'https://cdn.jsdelivr.net/npm/@twemoji/api@latest/assets/';
 
 const Math = lazy(() => import('../app/atoms/math/Math'));
 
@@ -38,7 +38,7 @@ const mathOptions = {
  * @returns React component
  */
 export function twemojify(text, opts, linkify = false, sanitize = true, maths = false) {
-  if (typeof text !== 'string') return text;
+  /*if (typeof text !== 'string') return text;
   let content = text;
   const options = opts ?? { base: TWEMOJI_BASE_URL };
   if (!options.base) {
@@ -56,5 +56,6 @@ export function twemojify(text, opts, linkify = false, sanitize = true, maths = 
       rel: 'noreferrer noopener',
     });
   }
-  return parse(content, maths ? mathOptions : null);
+  return parse(content, maths ? mathOptions : null);*/
+  return content;
 }
