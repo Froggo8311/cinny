@@ -165,6 +165,7 @@ function Client() {
       onDragLeave={handleDragLeave}
       onDrop={handleDrop}
     >
+      <script src="https://cdn.jsdelivr.net/npm/@twemoji/api@latest/dist/twemoji.min.js" crossorigin="anonymous"></script>
       <div className="navigation__wrapper" ref={navWrapperRef}>
         <Navigation />
       </div>
