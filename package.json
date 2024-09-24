@@ -24,7 +24,7 @@
     "@fontsource/roboto": "5.0.12",
     "@khanacademy/simple-markdown": "0.11.3",
     "@matrix-org/olm": "3.2.15",
-    "twemoji": "git://github.com/jdecked/twemoji",
+    "jdecked/twemoji": "15.1.0",
     "@tippyjs/react": "4.2.6",
     "blurhash": "2.0.4",
     "browser-encrypt-attachment": "0.3.0",
